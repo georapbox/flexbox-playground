@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CSS3 Flexbox Playground</title>
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css">
-    <link rel="stylesheet" href="../lib/highlightjs/styles/obsidian.css">
+    <link rel="stylesheet" href="../lib/highlight_js/styles/obsidian.css">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body ng-controller="AppCtrl">
@@ -15,7 +15,7 @@
         <h1>Flexbox Playground</h1>
 
         <div layout-gt-md="row" layout="column">
-            <div flex="50" class="right-padding">
+            <div flex="66" class="right-padding">
                 <h3>Children Width</h3>
                 <div layout="row" layout-align="center center" class="code">
                     <div flex="15">width: {{children_width}}%</div>
@@ -93,19 +93,28 @@
                 <h3>Children Flex Properties &ndash; <span class="highlight">flex items</span></h3>
                 <p>The children flex properties can be applied at child level, separate for each child. See the results section and change some of their properties. Hover with the mouse pointer or touch the fields to see the property name.</p>
 
+                <md-divider></md-divider>
+
+                <h3>The browser support for the latest flexbox specification is:</h3>
                 <p>
-                    <md-button class="md-accent md-raised" style="margin-left:0;" ng-click="showDialog();">
-                        Generate CSS
-                    </md-button>
+                    <ul>
+                        <li>Chrome 29+</li>
+                        <li>Firefox 28+</li>
+                        <li>Internet Explorer 11+</li>
+                        <li>Opera 17+</li>
+                        <li>Safari 6.1+ (prefixed with -webkit-)</li>
+                        <li>Android 4.4+</li>
+                        <li>iOS 7.1+ (prefixed with -webkit-)</li>
+                    </ul>
                 </p>
 
                 <md-divider hide show-sm show-md></md-divider>
             </div>
 
-            <div flex="50">
+            <div flex="33">
                 <h3 class="pull-left">Result</h3>
                 <p class="pull-right">
-                    <md-button class="md-accent md-raised" ng-click="addChild()">Add child</md-button>
+                    <md-button class="md-accent md-raised add-child" ng-click="addChild()">Add child</md-button>
                 </p>
 
                 <div class="clearfix"></div>
@@ -177,6 +186,10 @@
                         </div>
                     </div>
                 </div>
+
+                <p>
+                    <md-button class="md-accent md-raised" style="margin-left:0;" ng-click="showDialog();">View Source</md-button>
+                </p>
             </div>
         </div>
     </md-content>
@@ -185,7 +198,7 @@
     <script src="../node_modules/angular-animate/angular-animate.js"></script>
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
     <script src="../node_modules/angular-material/angular-material.js"></script>
-    <script src="../lib/highlightjs/highlight.pack.js"></script>
+    <script src="../lib/highlight_js/highlight.pack.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

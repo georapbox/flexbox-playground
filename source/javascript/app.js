@@ -19,7 +19,7 @@ controller('AppCtrl', ['$scope', '$timeout', '$mdDialog', function ($scope, $tim
         alignContent:   'stretch'
     };
 
-    $scope.children_width = 50; // %
+    $scope.children_width = 31; // %
 
     $scope.children  = [];
 
@@ -52,14 +52,29 @@ controller('AppCtrl', ['$scope', '$timeout', '$mdDialog', function ($scope, $tim
             clickOutsideToClose: true,
             template: '' +
             '<md-dialog flex="50" aria-label="List dialog">' +
-            '    <md-dialog-content>' +
-            '        <pre style="margin:0;"><code style="padding:15px;" class="css">' + generateCSS($scope.parent, $scope.children) + '</code></pre>' +
-            '    </md-dialog-content>' +
+                '<md-dialog-content>' +
+                    '<md-tabs md-dynamic-height>' +
+                        '<md-tab label="CSS">' +
+                            '<md-content>' +
+                                '<pre style="margin:0;"><code style="padding:15px;" class="css">' + generateCSS($scope.parent, $scope.children) + '</code></pre>' +
+                            '</md-content>' +
+                        '</md-tab>' +
+                        '<md-tab label="SCSS (Compass mixins)">' +
+                            '<md-content>' +
+                                '<pre style="margin:0;"><code style="padding:15px;" class="scss">' + generateSCSS($scope.parent, $scope.children) + '</code></pre>' +
+                            '</md-content>' +
+                        '</md-tab>' +
+                        '<md-tab label="HTML">' +
+                            '<md-content>' +
+                                '<pre style="margin:0;"><code style="padding:15px;" class="html">' + generateHTML($scope.children) + '</code></pre>' +
+                            '</md-content>' +
+                        '</md-tab>' +
+                    '</md-tabs>' +
+                '</md-dialog-content>' +
             '</md-dialog>',
             onShowing: function () {
                 $timeout(function () {
-                    var code = document.querySelectorAll('code');
-                    [].forEach.call(code, function (c) {
+                    [].forEach.call(document.querySelectorAll('code'), function (c) {
                         hljs.highlightBlock(c);
                     });
                 }, 0);
@@ -67,15 +82,23 @@ controller('AppCtrl', ['$scope', '$timeout', '$mdDialog', function ($scope, $tim
         });
     };
 
-    $scope.closeDialog = function () {
-        $mdDialog.cancel();
-    };
+    function generateHTML(children) {
+        var html = '&lt;div class="flex-container"&gt;\n';
+
+        children.forEach(function (child, index) {
+            html += '    &lt;div class="flex-item"&gt;Item ' + (++index) + '&lt;/div&gt;\n';
+        });
+
+        html += '&lt;/div&gt;';
+
+        return html;
+    }
 
     function generateCSS(parent, children) {
         var parentCSS,
             childrenCSS;
 
-        parentCSS = '/* Parent CSS */\n' +
+        parentCSS = '/* Parent */\n' +
             '.flex-container {\n' +
             '    ' + 'display: flex;\n' +
             '    ' + 'align-content: ' + parent.alignContent + ';\n' +
@@ -85,7 +108,7 @@ controller('AppCtrl', ['$scope', '$timeout', '$mdDialog', function ($scope, $tim
             '    ' + 'justify-content: ' + parent.justifyContent + ';\n' +
             '}\n\n';
 
-        childrenCSS = '/* Children CSS */\n';
+        childrenCSS = '/* Children */\n';
 
         children.forEach(function (child, index) {
             childrenCSS += '' +
@@ -99,5 +122,38 @@ controller('AppCtrl', ['$scope', '$timeout', '$mdDialog', function ($scope, $tim
         });
 
         return parentCSS + childrenCSS;
+    }
+
+    function generateSCSS(parent, children) {
+        var parentSCSS,
+            childrenSCSS;
+
+        parentSCSS = '/* Parent */\n' +
+            '.flex-container {\n' +
+            '    ' + '@include display(flex);\n' +
+            '    ' + '@include align-content(' + parent.alignContent + ');\n' +
+            '    ' + '@include align-items(' + parent.alignItems + ');\n' +
+            '    ' + '@include flex-direction(' + parent.flexDirection + ');\n' +
+            '    ' + '@include flex-wrap(' + parent.flexWrap + ');\n' +
+            '    ' + '@include justify-content(' + parent.justifyContent + ');\n' +
+            '}\n\n';
+
+        childrenSCSS = '/* Children */\n';
+        childrenSCSS += '.flex-item {\n';
+
+        children.forEach(function (child, index) {
+            childrenSCSS += '' +
+                '    &:nth-child(' + (++index) + ') {\n' +
+                '        ' + '@include order(' + child.order + ');\n' +
+                '        ' + '@include flex-grow(' + child.flexGrow + ');\n' +
+                '        ' + '@include flex-shrink(' + child.flexShrink + ');\n' +
+                '        ' + '@include flex-basis(' + child.flexBasis + ');\n' +
+                '        ' + '@include align-self(' + child.alignSelf + ');\n' +
+                '    }\n';
+        });
+
+        childrenSCSS += '}';
+
+        return parentSCSS + childrenSCSS;
     }
 }]);
