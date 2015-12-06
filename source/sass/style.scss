@@ -68,7 +68,13 @@ body {
 }
 
 .remove-child {
-    background: transparent;
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    min-height: 26px;
+    margin: 0 0 10px 0;
+    line-height: 28px;
+    background: rgba(#fff, 0.1);
     color: rgba(#fff, 0.7);
     font-size: 18px;
     cursor: pointer;
@@ -116,7 +122,7 @@ md-input-container {
 
     .md-input {
         padding: 0 !important;
-        line-height: 1em !important;
+        line-height: 2em !important;
     }
 }
 
@@ -161,4 +167,8 @@ md-tooltip .md-content {
             margin-bottom: 0 !important;
         }
     }
+}
+
+.md-tab {
+    color: #fff !important;
 }

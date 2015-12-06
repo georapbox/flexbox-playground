@@ -5,6 +5,7 @@ app.
 config(['$mdThemingProvider', function ($mdThemingProvider) {
     $mdThemingProvider.
     theme('default').dark().
+    primaryPalette('orange').
     accentPalette('orange', {
         default: '700',
 

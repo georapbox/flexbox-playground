@@ -12,11 +12,11 @@
 <body ng-controller="AppCtrl">
     <!-- Here's the main container -->
     <md-content class="md-padding">
-        <h1>Flexbox Playground</h1>
+        <h1 class="md-display-1">Flexbox Playground</h1>
 
         <div layout-gt-md="row" layout="column">
             <div flex="50" class="right-padding">
-                <h3>Children Width</h3>
+                <h3 class="md-title">Children Width</h3>
                 <div layout="row" layout-align="center center" class="code">
                     <div flex="15">width: {{children_width}}%</div>
                     <md-slider flex min="0" max="100" ng-model="children_width" aria-label="width"></md-slider>
@@ -24,7 +24,7 @@
 
                 <md-divider></md-divider>
 
-                <h3>Parent Flex Properties &ndash; <span class="highlight">flex container</span></h3>
+                <h3 class="md-title">Parent Flex Properties &ndash; <span class="highlight">flex container</span></h3>
                 <div layout="column" layout-gt-md="row" class="code">
                     <div layout="row">
                         <div flex class="parent-properties">
@@ -173,21 +173,22 @@
 
                 <md-divider></md-divider>
 
-                <h3>Children Flex Properties &ndash; <span class="highlight">flex items</span></h3>
+                <h3 class="md-title">Children Flex Properties &ndash; <span class="highlight">flex items</span></h3>
                 <p>The children flex properties can be applied at child level, separate for each child. See the results section and change some of their properties. Hover with the mouse pointer or touch the fields to see the property name.</p>
 
                 <md-divider></md-divider>
 
-                <h3>The browser support for the latest flexbox specification is:</h3>
+                <h3 class="md-title">Browser support</h3>
                 <p>
+                    <strong>The browser support for the latest flexbox specification is:</strong>
                     <ul>
                         <li>Chrome 29+</li>
                         <li>Firefox 28+</li>
                         <li>Internet Explorer 11+</li>
                         <li>Opera 17+</li>
-                        <li>Safari 6.1+ (prefixed with -webkit-)</li>
+                        <li>Safari 6.1+ (prefixed with <span class="highlight">-webkit-</span>)</li>
                         <li>Android 4.4+</li>
-                        <li>iOS 7.1+ (prefixed with -webkit-)</li>
+                        <li>iOS 7.1+ (prefixed with <span class="highlight">-webkit-</span>)</li>
                     </ul>
                 </p>
 
@@ -195,7 +196,7 @@
             </div>
 
             <div flex="50">
-                <h3 class="pull-left">Result</h3>
+                <h3 class="md-title pull-left">Result</h3>
                 <p class="pull-right">
                     <md-button class="md-accent md-raised add-child" ng-click="addChild()">Add child</md-button>
                 </p>
@@ -234,9 +235,9 @@
 
                         <div class="clearfix">
                             <span class="child-number" aria-label="Number">{{$index + 1}}</span>
-                            <span class="remove-child pull-right" ng-click="removeChild($index)" title="Remove">
+                            <md-button class="remove-child pull-right" ng-click="removeChild($index)" title="Remove">
                                 &#x2716;
-                            </span>
+                            </md-button>
                         </div>
 
                         <div class="child-controls">
