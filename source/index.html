@@ -15,7 +15,7 @@
         <h1>Flexbox Playground</h1>
 
         <div layout-gt-md="row" layout="column">
-            <div flex="66" class="right-padding">
+            <div flex="50" class="right-padding">
                 <h3>Children Width</h3>
                 <div layout="row" layout-align="center center" class="code">
                     <div flex="15">width: {{children_width}}%</div>
@@ -27,7 +27,7 @@
                 <h3>Parent Flex Properties &ndash; <span class="highlight">flex container</span></h3>
                 <div layout="column" layout-gt-md="row" class="code">
                     <div layout="row">
-                        <div flex>
+                        <div flex class="parent-properties">
                             <strong>flex-direction</strong>
                             <md-radio-group ng-model="parent.flexDirection">
                                 <md-radio-button value="row" class="highlight">row</md-radio-button>
@@ -37,7 +37,7 @@
                             </md-radio-group>
                         </div>
 
-                        <div flex>
+                        <div flex class="parent-properties">
                             <strong>flex-wrap</strong>
                             <md-radio-group ng-model="parent.flexWrap">
                                 <md-radio-button value="nowrap" class="highlight">nowrap</md-radio-button>
@@ -48,7 +48,7 @@
                     </div>
 
                     <div layout="row">
-                        <div flex>
+                        <div flex class="parent-properties">
                             <strong>justify-content</strong>
                             <md-radio-group ng-model="parent.justifyContent">
                                 <md-radio-button value="flex-start" class="highlight">flex-start</md-radio-button>
@@ -59,7 +59,7 @@
                             </md-radio-group>
                         </div>
 
-                        <div flex>
+                        <div flex class="parent-properties">
                             <strong>align-items</strong>
                             <md-radio-group ng-model="parent.alignItems">
                                 <md-radio-button value="stretch" class="highlight">stretch</md-radio-button>
@@ -72,7 +72,7 @@
                     </div>
 
                     <div layout="row">
-                        <div flex>
+                        <div flex class="parent-properties">
                             <strong>align-content</strong>
                             <md-radio-group ng-model="parent.alignContent">
                                 <md-radio-button value="stretch" class="highlight">stretch</md-radio-button>
@@ -111,7 +111,7 @@
                 <md-divider hide show-sm show-md></md-divider>
             </div>
 
-            <div flex="33">
+            <div flex="50">
                 <h3 class="pull-left">Result</h3>
                 <p class="pull-right">
                     <md-button class="md-accent md-raised add-child" ng-click="addChild()">Add child</md-button>
@@ -188,7 +188,7 @@
                 </div>
 
                 <p>
-                    <md-button class="md-accent md-raised" style="margin-left:0;" ng-click="showDialog();">View Source</md-button>
+                    <md-button class="md-accent md-raised view-source" ng-click="showDialog();">View Source</md-button>
                 </p>
             </div>
         </div>

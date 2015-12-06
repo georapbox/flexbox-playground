@@ -19,7 +19,7 @@ controller('AppCtrl', ['$scope', '$timeout', '$mdDialog', function ($scope, $tim
         alignContent:   'stretch'
     };
 
-    $scope.children_width = 31; // %
+    $scope.children_width = 32; // %
 
     $scope.children  = [];
 

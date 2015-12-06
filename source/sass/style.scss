@@ -33,6 +33,11 @@ body {
     }
 }
 
+.parent-properties {
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
 .child-number {
     display: block;
     width: 22px;
@@ -54,6 +59,12 @@ body {
 
 .add-child {
     margin-right: 0;
+    color: #fff !important;
+}
+
+.view-source {
+    margin-left: 0;
+    color: #fff !important;
 }
 
 .remove-child {
@@ -124,8 +135,4 @@ md-radio-button {
 
 md-divider {
     margin: 10px 0 !important;
-}
-
-.md-button {
-    color: #fff !important;
 }
