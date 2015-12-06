@@ -28,7 +28,23 @@
                 <div layout="column" layout-gt-md="row" class="code">
                     <div layout="row">
                         <div flex class="parent-properties">
-                            <strong>flex-direction</strong>
+                            <strong>
+                                flex-direction
+                                <md-tooltip md-direction="bottom">
+                                    <p>
+                                        <strong>Description:</strong> <br>
+                                        This property specifies how flex items are laid out in the flex container, by setting the direction of the flex container’s main axis.<br>
+                                        They can be laid out in two main directions, like rows horizontally or like columns vertically.
+                                    </p>
+                                    <p>
+                                        <strong>Values:</strong> <br>
+                                        <strong class="highlight code">row</strong>: Flex items are stacked in a row from left-to-right in <strong class="highlight">ltr</strong> context. <br>
+                                        <strong class="highlight code">row-reverse</strong>: Flex items are stacked in a row from right-to-left in <strong class="highlight">ltr</strong> context. <br>
+                                        <strong class="highlight code">column</strong>: Flex items are stacked in a column from top-to-bottom. <br>
+                                        <strong class="highlight code">column-reverse</strong>: Flex items are stacked in a column from bottom-to-top
+                                    </p>
+                                </md-tooltip>
+                            </strong>
                             <md-radio-group ng-model="parent.flexDirection">
                                 <md-radio-button value="row" class="highlight">row</md-radio-button>
                                 <md-radio-button value="row-reverse">row-reverse</md-radio-button>
@@ -38,7 +54,22 @@
                         </div>
 
                         <div flex class="parent-properties">
-                            <strong>flex-wrap</strong>
+                            <strong>
+                                flex-wrap
+                                <md-tooltip md-direction="bottom">
+                                    <p>
+                                        <strong>Description:</strong> <br>
+                                        The initial flexbox concept is the container to set its items in one single line. <br>
+                                        The <strong class="highlight">flex-wrap</strong> property controls if the flex container lay out its items in single or multiple lines, and the direction the new lines are stacked in.
+                                    </p>
+                                    <p>
+                                        <strong>Values:</strong> <br>
+                                        <strong class="highlight code">nowrap</strong>: Flex items are displayed in one row, by default they are shrunk to fit the flex container’s width. <br>
+                                        <strong class="highlight code">wrap</strong>: Flex items are displayed in multiple rows if needed from left-to-right and top-to-bottom. <br>
+                                        <strong class="highlight code">wrap-reverse</strong>: Flex items are displayed in multiple rows if needed from left-to-right and bottom-to-top.
+                                    </p>
+                                </md-tooltip>
+                            </strong>
                             <md-radio-group ng-model="parent.flexWrap">
                                 <md-radio-button value="nowrap" class="highlight">nowrap</md-radio-button>
                                 <md-radio-button value="wrap">wrap</md-radio-button>
@@ -49,7 +80,24 @@
 
                     <div layout="row">
                         <div flex class="parent-properties">
-                            <strong>justify-content</strong>
+                            <strong>
+                                justify-content
+                                <md-tooltip md-direction="bottom">
+                                    <p>
+                                        <strong>Description:</strong> <br>
+                                        The <strong class="highlight">justify-content</strong> property aligns flex items along the main axis of the current line of the flex container. <br>
+                                        It helps distribute left free space when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.
+                                    </p>
+                                    <p>
+                                        <strong>Values:</strong> <br>
+                                        <strong class="highlight code">flex-start</strong>: Flex items are aligned to the left side of the flex container in ltr context. <br>
+                                        <strong class="highlight code">flex-end</strong>: Flex items are aligned to the right side of the flex container in ltr context. <br>
+                                        <strong class="highlight code">center</strong>: Flex items are aligned at the center of the flex container. <br>
+                                        <strong class="highlight code">space-between</strong>: Flex items are displayed with equal spacing between them, first and last flex items are aligned to the edges of the flex container. <br>
+                                        <strong class="highlight code">space-around</strong>: Flex items are displayed with equal spacing around every flex item, even the first and last flex items.
+                                    </p>
+                                </md-tooltip>
+                            </strong>
                             <md-radio-group ng-model="parent.justifyContent">
                                 <md-radio-button value="flex-start" class="highlight">flex-start</md-radio-button>
                                 <md-radio-button value="flex-end">flex-end</md-radio-button>
@@ -60,7 +108,24 @@
                         </div>
 
                         <div flex class="parent-properties">
-                            <strong>align-items</strong>
+                            <strong>
+                                align-items
+                                <md-tooltip md-direction="bottom">
+                                    <p>
+                                        <strong>Description:</strong> <br>
+                                        Flex items can be aligned in the cross axis of the current line of the flex container, similar to justify-content but in the perpendicular direction. <br>
+                                        This property sets the default alignment for all flex items, including the anonymous ones.
+                                    </p>
+                                    <p>
+                                        <strong>Values:</strong> <br>
+                                        <strong class="highlight code">stretch</strong>: Flex items fill the whole height (or width) from <strong>cross start</strong> to <strong>cross end</strong> of the flex container. <br>
+                                        <strong class="highlight code">flex-start</strong>: Flex items are stacked to the <strong>cross start</strong> of the flex container. <br>
+                                        <strong class="highlight code">flex-end</strong>: Flex items are stacked to the <strong>cross end</strong> of the flex container. <br>
+                                        <strong class="highlight code">center</strong>: Flex items are stacked to the center of the <strong>cross axis</strong> of the flex container. <br>
+                                        <strong class="highlight code">baseline</strong>: Flex items are aligned in a way that their baselines are aligned. <br>
+                                    </p>
+                                </md-tooltip>
+                            </strong>
                             <md-radio-group ng-model="parent.alignItems">
                                 <md-radio-button value="stretch" class="highlight">stretch</md-radio-button>
                                 <md-radio-button value="flex-start">flex-start</md-radio-button>
@@ -73,7 +138,25 @@
 
                     <div layout="row">
                         <div flex class="parent-properties">
-                            <strong>align-content</strong>
+                            <strong>
+                                align-content
+                                <md-tooltip md-direction="bottom">
+                                    <p>
+                                        <strong>Description:</strong> <br>
+                                        The <strong class="highlight">align-content</strong> property aligns a flex container’s lines within the flex container when there is extra space in the cross-axis, <br>
+                                        similar to how <strong class="highlight">justify-content</strong> aligns individual items within the main-axis.
+                                    </p>
+                                    <p>
+                                        <strong>Values:</strong> <br>
+                                        <strong class="highlight code">stretch</strong>: Flex items are displayed with distributed space after every row of flex items. <br>
+                                        <strong class="highlight code">flex-start</strong>: Flex items are stacked toward the <strong>cross start</strong> of the flex container. <br>
+                                        <strong class="highlight code">flex-end</strong>: Flex items are stacked toward the <strong>cross end</strong> of the flex container. <br>
+                                        <strong class="highlight code">center</strong>: Rows of flex items are stacked in the center of the <strong>cross axis</strong> of the flex container. <br>
+                                        <strong class="highlight code">space-between</strong>: Rows of flex items are displayed with equal spacing between them, first and last rows are aligned to the edges of the flex container. <br>
+                                        <strong class="highlight code">space-around</strong>: Flex items are displayed with equal spacing around every row of flex items.
+                                    </p>
+                                </md-tooltip>
+                            </strong>
                             <md-radio-group ng-model="parent.alignContent">
                                 <md-radio-button value="stretch" class="highlight">stretch</md-radio-button>
                                 <md-radio-button value="flex-start">flex-start</md-radio-button>

@@ -136,3 +136,29 @@ md-radio-button {
 md-divider {
     margin: 10px 0 !important;
 }
+
+md-tooltip.md-default-theme,
+md-tooltip .md-background {
+    background: #12161b !important;
+}
+
+md-tooltip.md-default-theme,
+md-tooltip {
+    color: #cccccc !important;
+}
+
+md-tooltip .md-content {
+    height: auto;
+    line-height: 1.3;
+    padding: 10px 15px;
+    white-space: normal;
+    font-size: 14px;
+
+    p {
+        margin-bottom: 10px !important;
+
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+    }
+}
