@@ -15,7 +15,7 @@
         <h1 class="md-display-1">Flexbox Playground</h1>
 
         <div layout-gt-md="row" layout="column">
-            <div flex="50" class="right-padding">
+            <div flex="grow" class="right-padding">
                 <h3 class="md-title">Children Width</h3>
                 <div layout="row" layout-align="center center" class="code">
                     <div flex="15">width: {{children_width}}%</div>
@@ -174,7 +174,11 @@
                 <md-divider></md-divider>
 
                 <h3 class="md-title">Children Flex Properties &ndash; <span class="highlight">flex items</span></h3>
-                <p>The children flex properties can be applied at child level, separate for each child. See the results section and change some of their properties. Hover with the mouse pointer or touch the fields to see the property name.</p>
+                <p>
+                    The children flex properties can be applied at child level, separate for each child.
+                    See the results section and change some of their properties.
+                    The initial values ar the default ones.
+                </p>
 
                 <md-divider></md-divider>
 
@@ -195,7 +199,7 @@
                 <md-divider hide show-sm show-md></md-divider>
             </div>
 
-            <div flex="50">
+            <div flex="grow">
                 <h3 class="md-title pull-left">Result</h3>
                 <p class="pull-right">
                     <md-button class="md-accent md-raised add-child" ng-click="addChild()">Add child</md-button>
@@ -242,28 +246,28 @@
 
                         <div class="child-controls">
                             <md-input-container>
-                                <md-tooltip md-direction="top">order</md-tooltip>
-                                <input type="number" ng-model="children[$index].order" aria-label="order">
+                                <label>order</label>
+                                <input type="number" ng-model="children[$index].order" aria-label="order" focus>
                             </md-input-container>
 
                             <md-input-container>
-                                <md-tooltip md-direction="top">flex-grow</md-tooltip>
-                                <input type="number" ng-model="children[$index].flexGrow" aria-label="flexGrow">
+                                <label>flex-grow</label>
+                                <input type="number" ng-model="children[$index].flexGrow" aria-label="flex-grow">
                             </md-input-container>
 
                             <md-input-container>
-                                <md-tooltip md-direction="top">flex-shrink</md-tooltip>
-                                <input type="number" ng-model="children[$index].flexShrink" aria-label="flexShrink">
+                                <label>flex-shrink</label>
+                                <input type="number" ng-model="children[$index].flexShrink" aria-label="flex-shrink">
                             </md-input-container>
 
                             <md-input-container>
-                                <md-tooltip md-direction="top">flex-basis</md-tooltip>
-                                <input type="text" ng-model="children[$index].flexBasis" aria-label="flexBasis">
+                                <label>flex-basis</label>
+                                <input type="text" ng-model="children[$index].flexBasis" aria-label="flex-basis">
                             </md-input-container>
 
                             <md-input-container>
-                                <md-tooltip md-direction="top">align-self</md-tooltip>
-                                <md-select ng-model="children[$index].alignSelf" aria-label="alignSelf">
+                                <label>align-self</label>
+                                <md-select ng-model="children[$index].alignSelf" aria-label="align-self">
                                     <md-option ng-value="value" ng-repeat="value in ['auto', 'flex-start', 'flex-end', 'center', 'baseline', 'stretch']">{{value}}</md-option>
                                 </md-select>
                             </md-input-container>
