@@ -1,179 +1,186 @@
 @import "compass";
 
 $theme_color: #F57C00;
-$bg_color: #1e242b;
+$bg_color: #20242C;
 $bg_color2: #2a313b;
 
 body {
-    background-color: $bg_color;
+  background-color: $bg_color;
 }
 
 // Flex container
 .flexbox-parent {
-    @include display-flex;
-    background: rgba($bg_color2, 1);
+  @include display-flex;
+  background: rgba($bg_color2, 1);
+  overflow: hidden;
+  width: 100%;
+  padding: 3px;
+  min-height: 550px;
+  max-height: 1000px;
+
+  // Flex items
+  > div {
+    display: inline-block;
+    background: rgba(#3c4f67, 0.2);
     overflow: hidden;
-    width: 100%;
-    padding: 3px;
-    min-height: 550px;
-    max-height: 1000px;
+    margin: 3px;
+    padding: 5px;
 
-    // Flex items
-    > div {
-        display: inline-block;
-        background: rgba(#3c4f67, 0.2);
-        // background: white;
-        overflow: hidden;
-        margin: 3px;
-        padding: 5px;
-
-        .child-controls {
-            margin-top: 7px;
-        }
+    .child-controls {
+      margin-top: 7px;
     }
+  }
 }
 
 .parent-properties {
-    padding-right: 15px;
-    padding-bottom: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
 }
 
 .property-title {
-    cursor: help;
+  cursor: help;
 }
 
 .child-number {
-    display: block;
-    width: 22px;
-    height: 22px;
-    background: $theme_color;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    @include border-radius(50%);
-    float: left;
-    line-height: 24px;
+  display: block;
+  width: 22px;
+  height: 22px;
+  background: $theme_color;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  @include border-radius(50%);
+  float: left;
+  line-height: 24px;
 }
 
 .code {
-    font-family: Consolas, "Courier New", Monospace;
-    font-size: 15px;
+  font-family: Consolas, "Courier New", Monospace;
+  font-size: 15px;
 }
 
 .add-child {
-    margin-right: 0;
-    color: #fff !important;
+  margin-right: 0;
+  color: #fff !important;
 }
 
 .view-source {
-    margin-left: 0;
-    color: #fff !important;
+  margin-left: 0;
+  color: #fff !important;
 }
 
 .remove-child {
-    width: 26px;
-    min-width: 26px;
-    height: 26px;
-    min-height: 26px;
-    margin: 0 0 10px 0;
-    line-height: 28px;
-    background: rgba(#fff, 0.1);
-    color: rgba(#fff, 0.7);
-    font-size: 18px;
-    cursor: pointer;
+  width: 26px;
+  min-width: 26px;
+  height: 26px;
+  min-height: 26px;
+  margin: 0 0 10px 0;
+  line-height: 28px;
+  background: rgba(#fff, 0.1);
+  color: rgba(#fff, 0.7);
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .highlight {
-    color: $theme_color;
+  color: $theme_color;
 }
 
 .pull-left {
-    float: left;
+  float: left;
 }
 
 .pull-right {
-    float: right;
+  float: right;
 }
 
 .clearfix {
-    &:after {
-        content: '';
-        display: block;
-        clear: both;
-    }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 .right-padding {
-    padding-right: 15px;
+  padding-right: 15px;
+}
+
+h1 {
+  margin-bottom: 0;
 }
 
 h3 {
-    margin: 0 0 10px 0 !important;
+  margin: 0 0 10px 0 !important;
 }
 
 p {
-    margin: 0 0 10px 0 !important;
-    line-height: 1.4em !important;
+  margin: 0 0 10px 0 !important;
+  line-height: 1.4em !important;
+}
+
+.notifier {
+  margin-bottom: 20px !important;
 }
 
 md-content.md-default-theme,
 md-content {
-    background-color: $bg_color;
+  background-color: $bg_color;
 }
 
 md-input-container {
-    padding: 0 0 5px 0 !important;
+  padding: 0 0 5px 0 !important;
 
-    .md-input {
-        padding: 0 !important;
-        line-height: 2em !important;
-    }
+  .md-input {
+    padding: 0 !important;
+    line-height: 2em !important;
+  }
 }
 
 md-select {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 
-    .md-select-label {
-        padding-top: 2px !important;
-        padding-bottom: 4px !important;
-    }
+  .md-select-label {
+    padding-top: 2px !important;
+    padding-bottom: 4px !important;
+  }
 }
 
 md-radio-button {
-    margin: 5px 10px !important;
+  margin: 5px 10px !important;
 }
 
 md-divider {
-    margin: 10px 0 !important;
+  margin: 10px 0 !important;
 }
 
 md-tooltip.md-default-theme,
 md-tooltip .md-background {
-    background: #12161b !important;
+  background: #12161b !important;
 }
 
 md-tooltip.md-default-theme,
 md-tooltip {
-    color: #cccccc !important;
+  color: #cccccc !important;
 }
 
 md-tooltip .md-content {
-    height: auto;
-    line-height: 1.3;
-    padding: 10px 15px;
-    white-space: normal;
-    font-size: 14px;
+  height: auto;
+  line-height: 1.3;
+  padding: 10px 15px;
+  white-space: normal;
+  font-size: 14px;
 
-    p {
-        margin-bottom: 10px !important;
+  p {
+    margin-bottom: 10px !important;
 
-        &:last-child {
-            margin-bottom: 0 !important;
-        }
+    &:last-child {
+      margin-bottom: 0 !important;
     }
+  }
 }
 
 .md-tab {
-    color: #fff !important;
+  color: #fff !important;
 }
