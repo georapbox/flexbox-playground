@@ -2,7 +2,10 @@
 
 This is project to demonstrate the capabilities of the CSS3 Flexbox Layout.
 
-##Prerequisites
+> This is a fork of the original [flexbox-playground](https://github.com/imjustd/flexbox-playground).  
+> Added "View source code" functionality and parent flex properties descriptions.
+
+## Prerequisites
 
 In order to build this project you need to have Node.js and npm (Node Package Manager) installed on your system. You can download them from [here](https://nodejs.org/download/) and follow this [install instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 
