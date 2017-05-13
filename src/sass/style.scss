@@ -56,7 +56,7 @@ body {
 }
 
 .code {
-  font-family: Consolas, "Courier New", Monospace;
+  font-family: Monospace, Consolas, "Courier New";
   font-size: 15px;
 }
 
@@ -132,6 +132,11 @@ md-content {
 md-input-container {
   padding: 0 0 5px 0 !important;
 
+  label {
+    @include text-shadow(none);
+    font-size: 16px;
+  }
+
   .md-input {
     padding: 0 !important;
     line-height: 2em !important;
@@ -183,4 +188,8 @@ md-tooltip .md-content {
 
 .md-tab {
   color: #fff !important;
+}
+
+md-tabs-canvas {
+  background: $bg_color2;
 }

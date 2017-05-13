@@ -27,7 +27,7 @@
     "jshint-stylish": "^1.0.1"
   },
   "scripts": {
-    "watch": "gulp watch",
+    "watch": "gulp build && gulp watch",
     "build": "gulp build"
   },
   "dependencies": {

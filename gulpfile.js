@@ -6,14 +6,16 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   gnf = require('gulp-npm-files'),
   input = {
-    'html': 'source/*.html',
-    'sass': 'source/sass/**/*.scss',
-    'javascript': 'source/javascript/**/*.js'
+    // 'html': 'src/*.html',
+    'sass': 'src/sass/**/*.scss',
+    'javascript': 'src/javascript/**/*.js',
+    'lib': 'src/lib/**/*'
   },
   output = {
-    'html': 'dist',
+    // 'html': 'dist',
     'stylesheets': 'dist/css',
-    'javascript': 'dist/js'
+    'javascript': 'dist/js',
+    'lib': 'dist/lib'
   };
 
 /* run javascript through jshint */
@@ -27,7 +29,7 @@ gulp.task('jshint', function () {
 gulp.task('build-js', function () {
   return gulp.src(input.javascript).
     pipe(concat('app.js')).
-    //only uglify if gulp is ran with '--type production'
+    // only uglify if gulp is ran with '--type production'
     pipe(gutil.env.type === 'production' ? uglify() : gutil.noop()).
     pipe(gulp.dest(output.javascript));
 });
@@ -37,7 +39,7 @@ gulp.task('build-css', function () {
   return gulp.src(input.sass).
     pipe(compass({
       css: 'dist/css',
-      sass: 'source/sass'
+      sass: 'src/sass'
     })).
     pipe(gulp.dest(output.stylesheets));
 });
@@ -53,7 +55,8 @@ gulp.task('copy-html', function () {
 gulp.task('watch', function () {
   gulp.watch(input.javascript, ['jshint', 'build-js']);
   gulp.watch(input.sass, ['build-css']);
-  gulp.watch(input.html, ['copy-html']);
+  gulp.watch(input.lib, ['copy-lib']);
+  // gulp.watch(input.html, ['copy-html']);
 });
 
 // Copy dependencies to dist/node_modules/
@@ -62,8 +65,8 @@ gulp.task('copy-npm-dependencies-only', function() {
 });
 
 gulp.task('copy-lib', function() {
-  gulp.src(['lib/**/*']).pipe(gulp.dest('./dist/lib'));
+  gulp.src(input.lib).pipe(gulp.dest(output.lib));
 });
 
 /* run the watch task when gulp is called without arguments */
-gulp.task('build', ['jshint', 'copy-npm-dependencies-only', 'copy-lib', 'build-js', 'build-css', 'copy-html']);
+gulp.task('build', ['jshint', 'copy-npm-dependencies-only', 'copy-lib', 'build-js', 'build-css']);
