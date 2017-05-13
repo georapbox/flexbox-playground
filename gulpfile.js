@@ -66,7 +66,27 @@ gulp.task('copy-npm-dependencies-only', function() {
 
 gulp.task('copy-lib', function() {
   gulp.src(input.lib).pipe(gulp.dest(output.lib));
+
+  gulp
+    .src('node_modules/angular-material/angular-material.min.css')
+    .pipe(gulp.dest('dist/vendor/angular-material'));
+
+  gulp
+    .src('node_modules/angular/angular.min.js')
+    .pipe(gulp.dest('dist/vendor/angular'));
+
+  gulp
+    .src('node_modules/angular-animate/angular-animate.min.js')
+    .pipe(gulp.dest('dist/vendor/angular-animate'));
+
+  gulp
+    .src('node_modules/angular-aria/angular-aria.min.js')
+    .pipe(gulp.dest('dist/vendor/angular-aria'));
+
+  gulp
+    .src('node_modules/angular-material/angular-material.min.js')
+    .pipe(gulp.dest('dist/vendor/angular-material'));
 });
 
 /* run the watch task when gulp is called without arguments */
-gulp.task('build', ['jshint', 'copy-npm-dependencies-only', 'copy-lib', 'build-js', 'build-css']);
+gulp.task('build', ['jshint', 'copy-lib', 'build-js', 'build-css']);
