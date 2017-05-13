@@ -4,18 +4,15 @@ var gulp = require('gulp'),
   compass = require('gulp-compass'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
-  gnf = require('gulp-npm-files'),
   input = {
     // 'html': 'src/*.html',
     'sass': 'src/sass/**/*.scss',
-    'javascript': 'src/javascript/**/*.js',
-    'lib': 'src/lib/**/*'
+    'javascript': 'src/javascript/**/*.js'
   },
   output = {
     // 'html': 'dist',
     'stylesheets': 'dist/css',
-    'javascript': 'dist/js',
-    'lib': 'dist/lib'
+    'javascript': 'dist/js'
   };
 
 /* run javascript through jshint */
@@ -59,13 +56,10 @@ gulp.task('watch', function () {
   // gulp.watch(input.html, ['copy-html']);
 });
 
-// Copy dependencies to dist/node_modules/
-gulp.task('copy-npm-dependencies-only', function() {
-  gulp.src(gnf(), {base:'./'}).pipe(gulp.dest('./dist'));
-});
-
-gulp.task('copy-lib', function() {
-  gulp.src(input.lib).pipe(gulp.dest(output.lib));
+gulp.task('copy-vendor', function() {
+  gulp
+    .src('src/vendor/**/*')
+    .pipe(gulp.dest('dist/vendor'));
 
   gulp
     .src('node_modules/angular-material/angular-material.min.css')
@@ -89,4 +83,4 @@ gulp.task('copy-lib', function() {
 });
 
 /* run the watch task when gulp is called without arguments */
-gulp.task('build', ['jshint', 'copy-lib', 'build-js', 'build-css']);
+gulp.task('build', ['jshint', 'copy-vendor', 'build-js', 'build-css']);
