@@ -17,19 +17,13 @@ Note that these executables need to be accessed from command line, so make sure 
 
 ## Setup
 
-First install gulp command line tool globally with:
-
-`npm install --global gulp`
-
-And from the project's root install the dependencies with:
+From the project's root install the dependencies with:
 
 `npm install`
 
-After it's done, this will attempt to run `bundle` in the current dir to install the `compass` gem defines as a dependency in the `Gemfile`. Without the Ruby `compass` gem, `gulp build` will fail.
-
 ## Build
 
-To build the code just run `gulp` from the command line. This will produce functional version in the `dist` folder.
+To build the code just run `npm run build` from the command line. This will produce functional version in the `dist` folder.
 
 ## License
 This source code is under [MIT license](https://github.com/imjustd/flexbox-playground/blob/master/LICENSE).
