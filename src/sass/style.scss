@@ -12,11 +12,9 @@ body {
 .flexbox-parent {
   @include display-flex;
   background: rgba($bg_color2, 1);
-  overflow: hidden;
   width: 100%;
   padding: 3px;
   min-height: 550px;
-  max-height: 1000px;
 
   // Flex items
   > div {

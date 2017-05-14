@@ -6,11 +6,9 @@ body {
   display: -webkit-flex;
   display: flex;
   background: #2a313b;
-  overflow: hidden;
   width: 100%;
   padding: 3px;
   min-height: 550px;
-  max-height: 1000px;
 }
 .flexbox-parent > div {
   display: inline-block;
