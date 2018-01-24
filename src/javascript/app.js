@@ -132,7 +132,7 @@
 
       parentSCSS = '/* Parent */\n' +
         '.flex-container {\n' +
-        '    ' + '@include display(flex);\n' +
+        '    ' + '@include display-flex;\n' +
         '    ' + '@include align-content(' + parent.alignContent + ');\n' +
         '    ' + '@include align-items(' + parent.alignItems + ');\n' +
         '    ' + '@include flex-direction(' + parent.flexDirection + ');\n' +
